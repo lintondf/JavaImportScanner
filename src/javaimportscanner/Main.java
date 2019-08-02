@@ -73,6 +73,7 @@ public class Main {
 	}
 	
 	protected void findSource( File d ) {
+		System.out.println(d.getAbsolutePath());
 		for (File f : d.listFiles()) {
 			if (f.getName().startsWith(".") )
 				continue;
@@ -97,7 +98,7 @@ public class Main {
 			System.out.println(importPackage);
 			TreeSet<String> usages = imports.get(importPackage);
 			for (String where :usages ) {
-				System.out.println("  " + where);
+				System.out.println("  " + where.replace(base.toString(), "."));
 			}
 		}
 	}
